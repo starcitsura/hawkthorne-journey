@@ -138,6 +138,10 @@ function state:init()
     end)
 
     table.insert(state.assets, function()
+        Gamestate.load('castle-hawkthorn', Level.new('castle-hawkthorn'))
+    end)
+
+    table.insert(state.assets, function()
         Gamestate.load('overworld', require 'overworld')
     end)
 

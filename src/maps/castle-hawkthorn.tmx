@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="68" height="16" tilewidth="24" tileheight="24">
+ <properties>
+  <property name="offset" value="2"/>
+ </properties>
+ <tileset firstgid="1" name="castle-hawkthorn" tilewidth="24" tileheight="24">
+  <image source="../images/tilesets/castle-hawkthorn.png" width="240" height="240"/>
+ </tileset>
+ <layer name="Tile Layer 2" width="68" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzt0qERADAMw8AsUVxc3P13KwowTu9soJ9AQFUAAOCn5Q4Is90BIfqLY63I0V9ca4UfXyi+UHyh+AJTD33nAbE=
+  </data>
+ </layer>
+ <layer name="Tile Layer 1" width="68" height="16">
+  <data encoding="base64" compression="zlib">
+   eJztlTkOwjAQRSdhFwFKlgoogRIogY7lVByNo/FSUICGMBBFjmO+9GQp+pbGT4otkp1E5NZlfYXvhw9bK5m/j+eE4qNn7IXiY2jsheBjCjOYG7oh+FjAElaGbgg+1rCBraFb49yRQlwhHzvYux6iJDnCCc5wcTyL69ShAU1oQdvtOE6juegY9nF/SKQwgUEhkxafX12k4R25au/LCPrin5M8LtK88+Gjk7wu0mT5eDgZi/5PlZ34SxcWHz6TKOe9A085FUM=
+  </data>
+ </layer>
+ <objectgroup name="floor" width="68" height="16"/>
+ <objectgroup name="nodes" width="68" height="16">
+  <object type="entrance" x="216" y="216" width="24" height="48"/>
+ </objectgroup>
+ <objectgroup name="platform" width="68" height="16">
+  <object x="1608" y="216">
+   <properties>
+    <property name="drop" value="false"/>
+   </properties>
+   <polygon points="0,0 -120,120 -144,120 -24,0"/>
+  </object>
+  <object x="1536" y="216" width="96" height="2">
+   <properties>
+    <property name="drop" value="false"/>
+   </properties>
+  </object>
+  <object x="192" y="384">
+   <properties>
+    <property name="drop" value="false"/>
+   </properties>
+   <polygon points="0,0 0,-120 168,-120 240,-48 1344,-48 1344,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="wall" width="68" height="16">
+  <object x="192" y="0" width="168" height="192"/>
+ </objectgroup>
+</map>
