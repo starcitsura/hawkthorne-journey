@@ -2,6 +2,8 @@ local anim8 = require 'vendor/anim8'
 local Timer = require 'vendor/timer'
 local cheat = require 'cheat'
 local sound = require 'vendor/TEsound'
+local splat = require 'nodes/splat'
+local coin = require 'nodes/coin'
 
 local Hippie = {}
 Hippie.__index = Hippie
@@ -13,9 +15,11 @@ local g = anim8.newGrid(48, 48, sprite:getWidth(), sprite:getHeight())
 
 function Hippie.new(node, collider)
     local hippie = {}
-
     setmetatable(hippie, Hippie)
+    
+    hippie.node = node
     hippie.collider = collider
+    hippie.node = node
     hippie.dead = false
     hippie.width = 48
     hippie.height = 48
@@ -43,10 +47,11 @@ function Hippie.new(node, collider)
     hippie.bb = collider:addRectangle(node.x, node.y,30,25)
     hippie.bb.node = hippie
     collider:setPassive(hippie.bb)
+    
+    hippie.coins = {}
 
     return hippie
 end
-
 
 function Hippie:animation()
     return self.animations[self.state][self.direction]
@@ -64,6 +69,12 @@ function Hippie:die()
     self.state = 'dying'
     self.collider:setGhost(self.bb)
     Timer.add(.75, function() self.dead = true end)
+    self.splat = splat:add(self.position.x, self.position.y, self.width, self.height)
+    self.coins = {
+        coin.new(self.position.x + self.width / 2, self.position.y + self.height, self.collider, 1),
+        coin.new(self.position.x + self.width / 2, self.position.y + self.height, self.collider, 1),
+        coin.new(self.position.x + self.width / 2, self.position.y + self.height, self.collider, 1),
+    }
 end
 
 function Hippie:collide(player, dt, mtv_x, mtv_y)
@@ -104,6 +115,10 @@ end
 
 
 function Hippie:update(dt, player)
+    for _,c in pairs(self.coins) do
+        c:update(dt)
+    end
+    
     if self.dead then
         return
     end
@@ -134,12 +149,13 @@ function Hippie:update(dt, player)
 end
 
 function Hippie:draw()
-    if self.dead then
-        return
+    if not self.dead then
+        self:animation():draw( sprite, math.floor( self.position.x ), math.floor( self.position.y ) )
     end
 
-    self:animation():draw(sprite, math.floor(self.position.x),
-    math.floor(self.position.y))
+    for _,c in pairs(self.coins) do
+        c:draw()
+    end
 end
 
 return Hippie

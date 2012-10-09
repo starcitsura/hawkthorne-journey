@@ -4,12 +4,12 @@
   <property name="offset" value="2"/>
   <property name="soundtrack" value="abeds-castle"/>
  </properties>
- <tileset firstgid="1" name="newtown-castle-interior" tilewidth="24" tileheight="24">
-  <image source="newtown-castle-interior.png" width="720" height="432"/>
+ <tileset firstgid="1" name="abed-castle-interior" tilewidth="24" tileheight="24">
+  <image source="../images/tilesets/abed-castle-interior.png" width="720" height="432"/>
  </tileset>
  <layer name="Tile Layer 1" width="41" height="16">
   <data encoding="base64" compression="zlib">
-   eJzVkk0OwiAQhafaRusJdNWTGA9iepJu5ho9Sf09iZ6kbnwmkIxEELBVnOTbEHjvg1AQURHJTDEHJVgISrWu98R2PMgTd8wNQifEMXRMN03MHX0cY7OHchzrP/2j48bI0RPaTZazPo7mOeXF2rFO1LEWjk2ijo1wbBN1bIVjB3ZgDw7gCE7g/CVH9DD6GL2MfoYHw4c74fhqKnABV0f2GkwFE4Fc3zoykM/o4crikSsXFz24GZ02bI42kMu98vuEZUa0yp77hwK5jPy3jj739SX0HX/BWI53jHMr1Q==
+   eJzVkt0NwiAUhanSaJ1AfekkxkFMJ+nLXaOT1N9JdJL2xWMCyZUIArWKN/leCJzzQciFEHkkM8UcFGDBKNS63hPb8UAm7igNQifEMXRMN03MHX0cY7M/5TjWf/pHx62Roye0W1jO+jia55QXaccqUceKOdaJOtbMsUnUsWGOLdiDAziCEziDy5cc0UPoI/QS+gkeBB9qmeOrKcEV3BzZGzBlTBh8fefIQD6hh0qLh1QuLjrQG502bI42kEud8hvCMhNiBdbZs8NQkEfIJeS/dfS5ry+h7/gLxnK8A5V4LIc=
   </data>
  </layer>
  <layer name="Tile Layer 2" width="41" height="16">
@@ -42,19 +42,19 @@
   </object>
   <object type="door" x="821" y="192" width="43" height="68">
    <properties>
-    <property name="level" value="abedcave"/>
+    <property name="level" value="abed-cave"/>
    </properties>
   </object>
   <object type="door" x="456" y="264" width="71" height="61">
    <properties>
-    <property name="level" value="abedtown"/>
+    <property name="level" value="new-abedtown"/>
     <property name="reenter" value="true"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup color="#55557f" name="wall" width="41" height="16">
-  <object x="936" y="-24" width="48" height="432"/>
-  <object x="0" y="-24" width="48" height="432"/>
+  <object x="912" y="0" width="72" height="384"/>
+  <object x="0" y="0" width="72" height="384"/>
  </objectgroup>
  <objectgroup name="platform" width="41" height="16">
   <object x="24" y="264">
